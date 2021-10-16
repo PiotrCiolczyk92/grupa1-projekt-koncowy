@@ -10,8 +10,8 @@ public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer NumberOfParticipants;
-    private String Country;
+    private Integer numberOfParticipants;
+    private String country;
     private Integer price;
 
 

@@ -1,6 +1,5 @@
 package pl.sdacademy;
 
-import lombok.Getter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,5 +30,17 @@ public class Tour {
 
     public Integer getPrice() {
         return price;
+    }
+
+    public void setNumberOfParticipants(Integer numberOfParticipants) {
+        this.numberOfParticipants = numberOfParticipants;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tour")
+@RequestMapping()
 public class TourController {
 
     private TourService tourService;
@@ -19,12 +19,10 @@ public class TourController {
         this.tourService = tourService;
     }
 
-    @GetMapping()
-    public String mainView(){
+    @GetMapping("/tour")
+    public String mainView() {
         return "tour";
     }
-
-
 
     @GetMapping("/list")
     public String getList(ModelMap modelMap) {
@@ -37,8 +35,6 @@ public class TourController {
     public String getForm(@ModelAttribute("tour") Tour tour){
         return "form";
     }
-
-
 
 
 }

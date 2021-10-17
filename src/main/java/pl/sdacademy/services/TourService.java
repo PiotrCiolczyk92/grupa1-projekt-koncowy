@@ -33,5 +33,12 @@ public class TourService {
 
     }
 
+    public void delete(Tour tour) {
+        if (!tour.isAvailable()) {
+            tourRepository.deleteById(tour.getId());
+        }
+
+    }
+
 
 }

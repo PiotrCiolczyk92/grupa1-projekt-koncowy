@@ -3,9 +3,7 @@ package pl.sdacademy.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.services.TourService;
 import pl.sdacademy.entities.Tour;
 
@@ -33,7 +31,7 @@ public class TourController {
     }
 
     @GetMapping("/add-tour")
-    public String getForm(@ModelAttribute("tour") Tour tour){
+    public String getForm(@ModelAttribute("tour") Tour tour) {
         return "tour-form";
     }
 
@@ -43,4 +41,9 @@ public class TourController {
         return "redirect:/tour-list";
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Tour id) {
+        tourService.delete(id);
+
+    }
 }

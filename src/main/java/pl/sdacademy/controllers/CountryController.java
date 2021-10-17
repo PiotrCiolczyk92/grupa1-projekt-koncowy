@@ -18,11 +18,16 @@ public class CountryController {
         this.countryService = countryService;
     }
 
+    @GetMapping()
+    public String mainView() {
+        return "country";
+    }
+
     @GetMapping("/list")
     public String getList(ModelMap modelMap){
         List<Country> countries = countryService.getAll();
         modelMap.addAttribute("countries", countries);
-        return "country";
+        return "country-list";
     }
 
 }

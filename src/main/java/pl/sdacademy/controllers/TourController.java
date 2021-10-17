@@ -31,7 +31,7 @@ public class TourController {
     public String getList(ModelMap modelMap) {
         List<Tour> tours = tourService.getAll();
         modelMap.addAttribute("tours", tours);
-        return "list";
+        return "tour-list";
     }
 
     @GetMapping("/add")

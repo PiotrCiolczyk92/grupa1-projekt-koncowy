@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lista Krajów</title>
+    <title>Panel sterowania dla Country</title>
 </head>
 <body>
-<h1>Lista krajów</h1>
-<table>
-    <tr>
-        <th>Region</th>
-        <th>Miasto</th>
-    </tr>
-    <tr th:each="country: ${countries}">
-        <td th:text="${country.region}"></td>
-        <td th:text="${country.city}"></td>
-    </tr>
-</table>
+<a th:href="@{/country-list}"> Dodaj wycieczkę </a> </br>
 </body>
 </html>

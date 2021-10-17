@@ -42,8 +42,8 @@ public class TourController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Tour id) {
-        tourService.delete(id);
+    public void delete(@PathVariable Tour tour) {
+        tourService.delete(tour);
 
     }
 }

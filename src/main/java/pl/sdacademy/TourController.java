@@ -39,7 +39,7 @@ public class TourController {
     @PostMapping("/add")
     public String create(Tour tour) {
         tourService.create(tour);
-        return "redirect:/book/list";
+        return "redirect:/tour/list";
     }
 
 }

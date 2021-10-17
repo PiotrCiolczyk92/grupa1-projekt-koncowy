@@ -5,8 +5,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.sdacademy.entities.Tour;
 import pl.sdacademy.services.UserService;
 import pl.sdacademy.entities.User;
 
@@ -26,19 +24,19 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/user-list")
-    public String getList(ModelMap modelMap) {
+    @GetMapping("/list-user")
+    public String getUserList(ModelMap modelMap) {
         List<User> users = userService.getAll();
         modelMap.addAttribute("users", users);
         return "user-list";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add-user")
     public String getForm(@ModelAttribute("user") User user){
         return "user-form";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add-user")
     public String create(User user) {
         userService.create(user);
         return "redirect:/user-list";

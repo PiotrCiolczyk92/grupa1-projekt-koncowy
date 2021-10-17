@@ -19,6 +19,13 @@ public class TourController {
         this.tourService = tourService;
     }
 
+    @GetMapping()
+    public String mainView(){
+        return "tour";
+    }
+
+
+
     @GetMapping("/list")
     public String getList(ModelMap modelMap) {
         List<Tour> tours = tourService.getAll();
@@ -30,6 +37,8 @@ public class TourController {
     public String getForm(@ModelAttribute("tour") Tour tour){
         return "form";
     }
+
+
 
 
 }

@@ -10,7 +10,6 @@ import javax.persistence.Id;
 
 @Entity
 @Getter
-@NoArgsConstructor
 public class User {
 
     @Id

@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/user-add")
-    public String getForm(@ModelAttribute("user") User user){
+    public String getForm(@ModelAttribute("user") User user) {
         return "user-form";
     }
 

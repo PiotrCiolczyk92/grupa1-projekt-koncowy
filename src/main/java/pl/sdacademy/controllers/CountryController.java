@@ -41,7 +41,7 @@ public class CountryController {
     @PostMapping("/country-add")
     public String create(Country country) {
         countryService.create(country);
-        return "redirect:/country-list";
+        return "redirect:/list-country";
     }
 
 }

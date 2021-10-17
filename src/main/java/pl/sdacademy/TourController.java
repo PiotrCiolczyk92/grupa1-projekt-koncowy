@@ -19,11 +19,6 @@ public class TourController {
         this.tourService = tourService;
     }
 
-    @GetMapping()
-    public String getMain(){
-        return "tour";
-    }
-
     @GetMapping("/list")
     public String getList(ModelMap modelMap) {
         List<Tour> tours = tourService.getAll();
@@ -32,8 +27,9 @@ public class TourController {
     }
 
     @GetMapping("/add")
-    public String getForm(@ModelAttribute("tour") Tour tour) {
+    public String getForm(@ModelAttribute("tour") Tour tour){
         return "form";
     }
+
 
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping()
+@RequestMapping("/tour")
 public class TourController {
 
     private TourService tourService;
@@ -20,7 +20,7 @@ public class TourController {
         this.tourService = tourService;
     }
 
-    @GetMapping("/tour")
+    @GetMapping()
     public String mainView() {
         return "tour";
     }
@@ -39,7 +39,7 @@ public class TourController {
     @PostMapping("/add")
     public String create(Tour tour) {
         tourService.create(tour);
-        return "redirect:/tour/list";
+        return "redirect:/list";
     }
 
 }

@@ -16,5 +16,11 @@ public class Country {
     private String region;
     private String city;
 
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
+    public void setCity(String city) {
+        this.city = city;
+    }
 }

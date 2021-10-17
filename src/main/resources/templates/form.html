@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <title>Dodaj wycieczkę</title>
 </head>
@@ -10,6 +11,29 @@
 <label>Kraj: <input type="text"></label>
 <label>Cena: <input type="number"></label>
 <input type="submit" value="Dodaj">
+=======
+  <meta charset="UTF-8">
+  <title>Tworzneie wycieczki</title>
+
+</head>
+<body>
+<h1>Tworzenie wycieczki</h1>
+<form th:object="${tour}" method="post">
+  <label>
+    Ilość uczestnikow wyczieczki: <input type="text" th:field="*{numberOfParticipants}">
+  </label>
+  <label>
+    Kraj: <input type="text" th:field="*{country}">
+  </label>
+  <label>
+    Cena wycieczki: <input type="text" th:field="*{price}">
+  </label>
+  <input type="submit">
+
+
+
+</form>
+>>>>>>> origin/master
 
 </body>
 </html>

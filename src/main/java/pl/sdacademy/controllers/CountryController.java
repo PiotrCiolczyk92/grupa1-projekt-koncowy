@@ -10,7 +10,6 @@ import pl.sdacademy.entities.Country;
 import java.util.List;
 
 @Controller
-@RequestMapping("/country")
 public class CountryController {
     private CountryService countryService;
 
@@ -18,7 +17,7 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping()
+    @GetMapping("/country")
     public String mainView() {
         return "country";
     }

@@ -13,7 +13,6 @@ import pl.sdacademy.entities.Tour;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tour")
 public class TourController {
 
     private TourService tourService;
@@ -22,7 +21,7 @@ public class TourController {
         this.tourService = tourService;
     }
 
-    @GetMapping()
+    @GetMapping("/tour")
     public String mainView() {
         return "tour";
     }

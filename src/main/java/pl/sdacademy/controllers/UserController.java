@@ -13,7 +13,6 @@ import pl.sdacademy.entities.User;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     UserService userService;
@@ -22,7 +21,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping()
+    @GetMapping("/user")
     public String mainView() {
         return "user";
     }
@@ -36,7 +35,7 @@ public class UserController {
 
     @GetMapping("/add")
     public String getForm(@ModelAttribute("user") User user){
-        return "tour-form";
+        return "user-form";
     }
 
     @PostMapping("/add")

@@ -25,7 +25,7 @@ public class CountryController {
         return "country";
     }
 
-    @GetMapping("/list-country")
+    @GetMapping("/country-list")
     public String getList(ModelMap modelMap) {
         List<Country> countries = countryService.getAll();
         modelMap.addAttribute("countries", countries);
@@ -33,12 +33,12 @@ public class CountryController {
     }
 
 
-    @GetMapping("/add-country")
+    @GetMapping("/country-add")
     public String getForm(@ModelAttribute("country") Country country) {
         return "country-form";
     }
 
-    @PostMapping("/add-country")
+    @PostMapping("/country-add")
     public String create(Country country) {
         countryService.create(country);
         return "redirect:/country-list";

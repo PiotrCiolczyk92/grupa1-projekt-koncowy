@@ -24,19 +24,19 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/list-user")
+    @GetMapping("/user-list")
     public String getUserList(ModelMap modelMap) {
         List<User> users = userService.getAll();
         modelMap.addAttribute("users", users);
         return "user-list";
     }
 
-    @GetMapping("/add-user")
+    @GetMapping("/user-add")
     public String getForm(@ModelAttribute("user") User user){
         return "user-form";
     }
 
-    @PostMapping("/add-user")
+    @PostMapping("/user-add")
     public String create(User user) {
         userService.create(user);
         return "redirect:/user-list";

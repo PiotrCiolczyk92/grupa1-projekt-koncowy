@@ -12,15 +12,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/tour")
 public class TourController {
-    private TourRepository tourRepository;
 
-    public TourController(TourRepository tourRepository) {
-        this.tourRepository = tourRepository;
+    private TourService tourService;
+
+    public TourController(TourService tourService) {
+        this.tourService = tourService;
     }
 
     @GetMapping("/list")
     public String getList(ModelMap modelMap) {
-        List<Tour> tours = tourRepository.findAll();
+        List<Tour> tours = tourService.getAll();
         modelMap.addAttribute("tours", tours);
         return "list";
     }
@@ -29,4 +30,6 @@ public class TourController {
     public String getForm(@ModelAttribute("tour") Tour tour){
         return "form";
     }
+
+
 }

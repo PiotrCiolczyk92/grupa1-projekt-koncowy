@@ -23,6 +23,10 @@ public class TourService {
         return tourRepository.findAll();
     }
 
+    public Tour getById(Integer id) {
+        return tourRepository.getById(id);
+    }
+
     public void create(Tour tour) {
         if (tour.getId() != null) {
             IllegalArgumentException exception = new IllegalArgumentException("Dodawana wcycieczka nie powinna mieć już istniejącego ID");
@@ -37,8 +41,6 @@ public class TourService {
         if (!tour.isAvailable()) {
             tourRepository.deleteById(tour.getId());
         }
-
     }
-
 
 }

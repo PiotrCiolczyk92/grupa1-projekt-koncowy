@@ -41,6 +41,18 @@ public class TourController {
         return "redirect:/list-tour";
     }
 
+    @GetMapping("/update-tour")
+    public String getUpdateForm(@RequestParam int id, ModelMap modelMap) {
+        Tour tour = tourService.getById(id);
+        modelMap.addAttribute("tour", tour);
+        return "tour-update";
+    }
+    @PostMapping("update-tour")
+    public String update(Tour tour) {
+    // DOKONCZYC
+        return "redirect:/list-tour";
+    }
+
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Tour tour) {
         tourService.delete(tour);

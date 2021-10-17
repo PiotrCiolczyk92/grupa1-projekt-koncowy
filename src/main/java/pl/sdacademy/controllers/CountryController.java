@@ -32,7 +32,6 @@ public class CountryController {
         return "country-list";
     }
 
-
     @GetMapping("/country-add")
     public String getForm(@ModelAttribute("country") Country country) {
         return "country-form";

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista użytkowników</title>
+</head>
+<body>
+<h1>Lista użytkowników</h1>
+<h1>Lista wycieczek</h1>
+<table>
+    <tr>
+        <th>ID użytkownika</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Telefon</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="user: ${users}">
+        <td th:text="${users.id}"></td>
+        <td th:text="${users.firstName}"></td>
+        <td th:text="${users.lastName}"></td>
+        <td th:text="${users.mobile}"></td>
+        <td th:text="${users.email}"></td>
+    </tr>
+</table>
+</body>
+</html>

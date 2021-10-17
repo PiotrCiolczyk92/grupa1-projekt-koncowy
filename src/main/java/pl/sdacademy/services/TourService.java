@@ -1,9 +1,12 @@
-package pl.sdacademy;
+package pl.sdacademy.services;
 
 
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import pl.sdacademy.entities.Tour;
+import pl.sdacademy.repositories.TourRepository;
+
 import java.util.List;
 
 

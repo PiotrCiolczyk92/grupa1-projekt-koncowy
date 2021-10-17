@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.controllers;
 
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.sdacademy.services.TourService;
+import pl.sdacademy.entities.Tour;
 
 import java.util.List;
 
@@ -36,6 +38,7 @@ public class TourController {
     public String getForm(@ModelAttribute("tour") Tour tour){
         return "form";
     }
+
     @PostMapping("/add")
     public String create(Tour tour) {
         tourService.create(tour);

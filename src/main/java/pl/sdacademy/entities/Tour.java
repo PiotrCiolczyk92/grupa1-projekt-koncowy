@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.entities;
 
 
 import lombok.Getter;

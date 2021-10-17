@@ -38,7 +38,7 @@ public class TourController {
     @PostMapping("/add-tour")
     public String create(Tour tour) {
         tourService.create(tour);
-        return "redirect:/tour-list";
+        return "redirect:/list-tour";
     }
 
     @DeleteMapping("/delete/{id}")

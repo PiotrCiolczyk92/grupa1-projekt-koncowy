@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tour")
+@RequestMapping()
 public class TourController {
 
     private TourService tourService;
 
     public TourController(TourService tourService) {
         this.tourService = tourService;
+    }
+
+    @GetMapping("/tour")
+    public String mainView() {
+        return "tour";
     }
 
     @GetMapping("/list")

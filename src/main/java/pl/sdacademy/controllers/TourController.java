@@ -36,13 +36,13 @@ public class TourController {
 
     @GetMapping("/add")
     public String getForm(@ModelAttribute("tour") Tour tour){
-        return "form";
+        return "tour-form";
     }
 
     @PostMapping("/add")
     public String create(Tour tour) {
         tourService.create(tour);
-        return "redirect:/list";
+        return "redirect:/tour-list";
     }
 
 }

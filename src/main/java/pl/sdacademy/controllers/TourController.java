@@ -41,21 +41,30 @@ public class TourController {
         return "redirect:/list-tour";
     }
 
-    @GetMapping("/update-tour")
-    public String getUpdateForm(@RequestParam int id, ModelMap modelMap) {
+    @GetMapping("/update-tour/{tourId}")
+    public String getUpdateForm(@PathVariable("tourId") int id, ModelMap modelMap) {
         Tour tour = tourService.getById(id);
         modelMap.addAttribute("tour", tour);
         return "tour-update";
     }
-    @PostMapping("update-tour")
+
+    @PostMapping("/update-tour/{tourId}")
     public String update(Tour tour) {
-    // DOKONCZYC
+        tourService.update(tour);
         return "redirect:/list-tour";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Tour tour) {
-        tourService.delete(tour);
 
+    @GetMapping("/delete-tour/{tourId}")
+    public String deleteTour(@PathVariable("tourId") int id, ModelMap modelMap) {
+        Tour tour = tourService.getById(id);
+        modelMap.addAttribute("tour", tour);
+        return "tour-delete";
+    }
+
+    @PostMapping("delete-tour/{tourId}")
+    public String delete(Tour tour) {
+        tourService.delete(tour);
+        return "redirect:/list-tour";
     }
 }

@@ -1,7 +1,6 @@
 package pl.sdacademy.services;
 
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.sdacademy.entities.Tour;
@@ -34,12 +33,23 @@ public class TourService {
             throw exception;
         }
         tourRepository.save(tour);
+    }
 
+    public void update(Tour tour) {
+            //Obsługa żądania metodą POST (nie potrzebujemy już id przekazywać w ścieżce lub url)
+        // sprawdzi, czy jest zadany id - jeśli tak, to aktualizujemy, jeśli nie, to dodajemy
+        if (tour.getId() != null) {
+            Tour updatedTour = tourRepository.getById(tour.getId());
+            updatedTour.setPrice(tour.getPrice());
+            updatedTour.setNumberOfParticipants(tour.getNumberOfParticipants());
+            updatedTour.setCountry(tour.getCountry());
+        }
+            tourRepository.save(tour);
     }
 
     public void delete(Tour tour) {
-        if (!tour.isAvailable()) {
-            tourRepository.deleteById(tour.getId());
+        if (tour.getId() != null) {
+            tourRepository.delete(tour);
         }
     }
 

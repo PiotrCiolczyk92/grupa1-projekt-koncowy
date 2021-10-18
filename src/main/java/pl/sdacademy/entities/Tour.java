@@ -35,4 +35,8 @@ public class Tour {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

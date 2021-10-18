@@ -7,6 +7,9 @@
 <body>
 <h1> Tour update</h1>
 <form th:object="${tour}" method="post">
+
+         <input type="hidden" th:field="*{id}">
+    <br>
     <label>
         Ilość uczestnikow wyczieczki: <input type="number" th:field="*{numberOfParticipants}">
     </label>
@@ -16,7 +19,7 @@
     <label>
         Cena wycieczki: <input type="text" th:field="*{price}">
     </label>
-    <input type="submit">
+    <input type="submit" value="Update Tour">
 </form>
 </body>
 </html>

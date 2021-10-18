@@ -8,16 +8,22 @@
 <h1>Lista wycieczek</h1>
 <table>
     <tr>
+        <th>ID wycieczki</th>
         <th>Liczba uczestników</th>
         <th>Kraj</th>
         <th>Cena</th>
         <th>Dostępność</th>
+        <th></th>
+        <th></th>
     </tr>
     <tr th:each="tour: ${tours}">
+        <td th:text="${tour.id}"></td>
         <td th:text="${tour.numberOfParticipants}"></td>
         <td th:text="${tour.country}"></td>
         <td th:text="${tour.price}"></td>
         <td th:text="${tour.available}"></td>
+        <td><a th:href="@{/update-tour/{id}(id=${tour.id})}">UPDATE</a> </td>
+        <td><a th:href="@{/delete-tour/{id}(id=${tour.id})}">DELETE</a></td>
     </tr>
 </table>
 </body>

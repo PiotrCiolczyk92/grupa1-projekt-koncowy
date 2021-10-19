@@ -20,6 +20,8 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.mobile}"></td>
         <td th:text="${user.email}"></td>
+        <td> <a th:href="@{/update-user/{id}(id = ${user.id})}"> UPDATE </a> </td>
+        <td> <a th:href="@{/delete-user/{id}(id = ${user.id})}"> DELETE </a> </td>
     </tr>
 </table>
 </body>

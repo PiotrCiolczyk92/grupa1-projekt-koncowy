@@ -21,6 +21,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getById(Integer id) {
+        return userRepository.getById(id);
+    }
+
     public void create(User user) {
         if (user.getId() != null) {
             IllegalArgumentException exception = new IllegalArgumentException(
@@ -31,4 +35,18 @@ public class UserService {
         userRepository.save(user);
 
     }
+
+    public void update(User user) {
+        if (user.getId() != null) {
+            User updatedUser = userRepository.getById(user.getId());
+            updatedUser.setFirstName(user.getFirstName());
+            updatedUser.setLastName(user.getLastName());
+            updatedUser.setMobile(user.getMobile());
+            updatedUser.setEmail(user.getEmail());
+        }
+        userRepository.save(user);
+    }
+
+
+
 }

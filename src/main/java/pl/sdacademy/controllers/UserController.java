@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.sdacademy.services.UserService;
 import pl.sdacademy.entities.User;
@@ -39,6 +40,19 @@ public class UserController {
     @PostMapping("/user-add")
     public String create(User user) {
         userService.create(user);
+        return "redirect:/user-list";
+    }
+
+    @GetMapping("/update-user/{userId}")
+    public String getUpdateForm(@PathVariable("userId") int id, ModelMap modelMap) {
+        User user = userService.getById(id);
+        modelMap.addAttribute("user", user);
+        return "user-update";
+    }
+
+    @PostMapping("/update-user/{userId}")
+    public String update(User user) {
+        userService.update(user);
         return "redirect:/user-list";
     }
 

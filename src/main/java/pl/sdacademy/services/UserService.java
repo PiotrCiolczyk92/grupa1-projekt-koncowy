@@ -11,7 +11,7 @@ import java.util.List;
 @Slf4j
 public class UserService {
 
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -44,9 +44,15 @@ public class UserService {
             updatedUser.setMobile(user.getMobile());
             updatedUser.setEmail(user.getEmail());
         }
-        userRepository.save(user);
+            userRepository.save(user);
+
+
     }
 
-
+    public void delete(User user) {
+        if(user.getId() != null) {
+            userRepository.delete(user);
+        }
+    }
 
 }

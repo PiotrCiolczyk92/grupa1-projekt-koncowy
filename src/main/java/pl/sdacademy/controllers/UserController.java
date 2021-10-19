@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    UserService userService;
+     private UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -53,6 +53,18 @@ public class UserController {
     @PostMapping("/update-user/{userId}")
     public String update(User user) {
         userService.update(user);
+        return "redirect:/user-list";
+    }
+
+    @GetMapping("/delete-user/{userId}")
+    public String deleteUser(@PathVariable("userId") int id, ModelMap modelMap) {
+        User user = userService.getById(id);
+        modelMap.addAttribute("user", user);
+        return "user-delete";
+    }
+    @PostMapping("/delete-user/{userId}")
+    public String delete(User user) {
+        userService.delete(user);
         return "redirect:/user-list";
     }
 

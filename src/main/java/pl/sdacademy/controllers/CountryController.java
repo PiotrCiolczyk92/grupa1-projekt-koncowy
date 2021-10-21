@@ -2,11 +2,7 @@ package pl.sdacademy.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.sdacademy.entities.Tour;
+import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.services.CountryService;
 import pl.sdacademy.entities.Country;
 
@@ -40,7 +36,33 @@ public class CountryController {
     @PostMapping("/country-add")
     public String create(Country country) {
         countryService.create(country);
-        return "redirect:/list-country";
+        return "redirect:/country-list";
+    }
+
+    @GetMapping("update-country/{countryId}")
+    public String getUpdateForm(@PathVariable("countryId") int id, ModelMap modelMap) {
+        Country country = countryService.getById(id);
+        modelMap.addAttribute("country", country);
+        return "country-update";
+    }
+
+    @PostMapping("update-country/{tourId}")
+    public String update(Country country) {
+        countryService.update(country);
+        return "redirect:/country-list";
+    }
+
+    @GetMapping("delete-country/{countryId}")
+    public String deleteTour(@PathVariable("countryId") int id, ModelMap modelMap) {
+        Country country = countryService.getById(id);
+        modelMap.addAttribute("country", country);
+        return "country-delete";
+    }
+
+    @PostMapping("delete-country/{countryId}")
+    public String delete(Country country) {
+        countryService.delete(country);
+        return "redirect:/country-list";
     }
 
 }

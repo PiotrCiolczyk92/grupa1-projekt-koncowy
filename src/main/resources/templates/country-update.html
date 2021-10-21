@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Country update</title>
+</head>
+<body>
+<h1> Country UPDATE</h1>
+<form th:object="${country}" method="post">
+    <label>
+        <input type="hidden" th:field="*{id}">
+    </label>
+    <label>
+        Region: <input type="text" th:field="*{region}">
+    </label>
+    <label>
+        Miasto: <input type="text" th:field="*{city}">
+    </label>
+    <input type="submit" value="Update country">
+</form>
+</body>
+</html>

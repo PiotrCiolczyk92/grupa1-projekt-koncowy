@@ -2,17 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Delete</title>
+    <title>Country delete</title>
 </head>
 <body>
 <h1> DELETE </h1>
-<form th:object="${tour}" method="post">
+<form th:object="${country}" method="post">
     <input type="hidden" th:field="*{id}">
-    <strong> Czy napewno chcesz usunąć tą wycieczkę? </strong>
+    <strong> Czy napewno chcesz usunąć?</strong>
     <br>
     <input type="submit" value="TAK">
     <br>
-    <button> <a type="button" th:href="@{/list-tour}">NIE (wróć do listy wycieczek)></a> </button>
 </form>
 </body>
 </html>

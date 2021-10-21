@@ -10,11 +10,17 @@
     <tr>
         <th>Region</th>
         <th>Miasto</th>
+        <th></th>
+        <th></th>
     </tr>
     <tr th:each="country: ${countries}">
         <td th:text="${country.region}"></td>
         <td th:text="${country.city}"></td>
+        <td> <a th:href="@{/update-country/{id}(id=${country.id})}"> UPDATE </a></td>
+        <td> <a th:href="@{/delete-country/{id}(id=${country.id})}"> DELETE </a></td>
     </tr>
 </table>
+<br>
+<button> <a th:href="@{/country-add}"> Dodaj miejsce </a><strong></strong></button>
 </body>
 </html>

@@ -21,6 +21,10 @@ public class CountryService {
         return countryRepository.findAll();
     }
 
+    public Country getById(Integer id) {
+        return countryRepository.getById(id);
+    }
+
     public void create(Country country) {
         if (country.getId() != null) {
             IllegalArgumentException exception = new IllegalArgumentException("Dodawany kraj nie powinien mieć już istniejącego ID");
@@ -28,6 +32,21 @@ public class CountryService {
             throw exception;
         }
         countryRepository.save(country);
-
     }
+
+    public void update(Country country) {
+        if (country.getId() != null) {
+            Country updateCountry = countryRepository.getById(country.getId());
+            country.setCity(updateCountry.getCity());
+            country.setRegion(updateCountry.getRegion());
+        }
+        countryRepository.save(country);
+    }
+
+    public void delete(Country country) {
+        if (country.getId() != null) {
+            countryRepository.delete(country);
+        }
+    }
+
 }

@@ -11,7 +11,7 @@
   <body>
   <nav th:replace="fragments :: navbar(title='main')"></nav>
 
-  <h1> Aktualizacja wycieczki </h1>
+  <h1> Aktualizacja wycieczki. </h1>
   <form th:object="${tour}" method="post">
     <div class="mb-3">
       <input type="hidden" th:field="*{id}">

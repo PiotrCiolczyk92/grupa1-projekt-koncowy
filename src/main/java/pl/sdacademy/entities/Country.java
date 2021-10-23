@@ -23,4 +23,8 @@ public class Country {
     public void setCity(String city) {
         this.city = city;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

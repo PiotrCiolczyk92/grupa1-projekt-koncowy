@@ -21,7 +21,7 @@ public class CountryService {
         return countryRepository.findAll();
     }
 
-    public Country getById(Integer id) {
+    public Country getById(int id) {
         return countryRepository.getById(id);
     }
 
@@ -37,8 +37,8 @@ public class CountryService {
     public void update(Country country) {
         if (country.getId() != null) {
             Country updateCountry = countryRepository.getById(country.getId());
-            country.setCity(updateCountry.getCity());
-            country.setRegion(updateCountry.getRegion());
+            updateCountry.setRegion(country.getRegion());
+            updateCountry.setCity(country.getCity());
         }
         countryRepository.save(country);
     }
@@ -47,6 +47,7 @@ public class CountryService {
         if (country.getId() != null) {
             countryRepository.delete(country);
         }
+        countryRepository.delete(country);
     }
 
 }

@@ -5,6 +5,8 @@
     <title>Update user</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <h1> User update </h1>
 <form th:object="${user}" method="post">
 

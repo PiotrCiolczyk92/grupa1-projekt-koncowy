@@ -5,6 +5,8 @@
     <title>Update tour</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <h1> Tour update</h1>
 <form th:object="${tour}" method="post">
 

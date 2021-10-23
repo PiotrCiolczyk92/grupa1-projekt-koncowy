@@ -30,7 +30,10 @@
             <td th:text="${tour.numberOfParticipants}"></td>
             <td th:text="${tour.country}"></td>
             <td th:text="${tour.price}"></td>
-            <td th:text="${tour.available}"></td>
+            <td>
+                <span style="background-color: green" th:if="${tour.available}">DOSTEPNA</span>
+                <span style="background-color: crimson" th:unless="${tour.available}">NIEDOSTEPNA</span>
+            </td>
             <td>
                 <a th:href="@{/update-tour/{id}(id=${tour.id})}"><button>UPDATE</button></a>
             </td>

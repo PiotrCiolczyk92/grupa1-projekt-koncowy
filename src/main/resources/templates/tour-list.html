@@ -35,10 +35,10 @@
                 <span style="background-color: crimson" th:unless="${tour.available}">NIEDOSTEPNA</span>
             </td>
             <td>
-                <a th:href="@{/update-tour/{id}(id=${tour.id})}"><button>UPDATE</button></a>
+                <a th:href="@{/update-tour/{id}(id=${tour.id})}"><button>Aktualizuj</button></a>
             </td>
             <td>
-                <a th:href="@{/delete-tour/{id}(id=${tour.id})}"><button>DELETE</button></a>
+                <a th:href="@{/delete-tour/{id}(id=${tour.id})}"><button>Usuń</button></a>
             </td>
         </tr>
         </tbody>

@@ -67,4 +67,8 @@ public class TourController {
         tourService.delete(tour);
         return "redirect:/list-tour";
     }
+    @GetMapping("/kontakt")
+    public String kontakt() {
+        return "kontakt";
+    }
 }

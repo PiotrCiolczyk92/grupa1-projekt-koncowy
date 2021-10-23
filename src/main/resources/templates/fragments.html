@@ -9,12 +9,18 @@
 </head>
 <body>
 <nav th:fragment="navbar" class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
-    <div class="container-md">
-        <strong> <a class="navbar-brand"> Travel Lodge </a> </strong>
-        <a class="navbar-brand" th:href="@{/}"> Home </a>
+    <div id="przyciski">
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ">
+            <li><a href="#" class="nav-link px-2 link-dark">Strona główna</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Oferta</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Opinie</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">O Nas</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Kontakt</a></li>
+        </ul>
     </div>
-    <div class="container">
-
+    <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-danger btn-rounded me-2">Zaloguj się</button>
+        <button type="button" class="btn btn-dark">Zarejestruj się</button>
     </div>
 </nav>
 </body>

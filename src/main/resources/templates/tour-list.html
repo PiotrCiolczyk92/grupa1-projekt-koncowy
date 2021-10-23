@@ -8,38 +8,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <div class="conteiner">
-<body>
-<nav th:replace="fragments :: navbar(title='main')"> </nav>
+    <body>
+    <nav th:replace="fragments :: navbar(title='main')"></nav>
 
-<h1>Lista wycieczek</h1>
-<table class="table">
-  <thead>
-    <tr>
-        <th>ID wycieczki</th>
-        <th>Liczba uczestników</th>
-        <th>Kraj</th>
-        <th>Cena</th>
-        <th>Dostępność</th>
-        <th>Aktualizacja</th>
-        <th>Usuwanie</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="tour: ${tours}">
-        <td th:text="${tour.id}"></td>
-        <td th:text="${tour.numberOfParticipants}"></td>
-        <td th:text="${tour.country}"></td>
-        <td th:text="${tour.price}"></td>
-        <td th:text="${tour.available}"></td>
-        <td><a th:href="@{/update-tour/{id}(id=${tour.id})}">UPDATE</a> </td>
-        <td><a th:href="@{/delete-tour/{id}(id=${tour.id})}">DELETE</a></td>
-    </tr>
-  </tbody>
-</table>
-<br>
+    <h1>Lista wycieczek</h1>
+    <table class="table" border="5" >
+        <thead>
+        <tr style="text-align: center;">
+            <th>ID wycieczki</th>
+            <th>Liczba uczestników</th>
+            <th>Kraj</th>
+            <th>Cena</th>
+            <th>Dostępność</th>
+            <th>Aktualizacja</th>
+            <th>Usuwanie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="text-align: center;" th:each="tour: ${tours}">
+            <td th:text="${tour.id}"></td>
+            <td th:text="${tour.numberOfParticipants}"></td>
+            <td th:text="${tour.country}"></td>
+            <td th:text="${tour.price}"></td>
+            <td th:text="${tour.available}"></td>
+            <td>
+                <button><a th:href="@{/update-tour/{id}(id=${tour.id})}"></a> UPDATE</button>
+            </td>
+            <td>
+                <button><a th:href="@{/delete-tour/{id}(id=${tour.id})}"></a> DELETE</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
 
-<button > <a class="btn btn-primary" href="#" role="button"  th:href="@{/add-tour}"> Dodaj Wycieczkę </a></button>
+    <button><a class="btn btn-primary" role="button" th:href="@{/add-tour}"> Dodaj Wycieczkę </a></button>
 
-</body>
+    </body>
 </div>
 </html>

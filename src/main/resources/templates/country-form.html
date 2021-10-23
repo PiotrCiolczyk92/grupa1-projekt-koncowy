@@ -14,11 +14,11 @@
 <form th:object="${country}" method="post">
   <div class="mb-3">
     <label for="formGroupExampleInput1" class="form-label"> Region </label>
-    <input type="number" class="form-control" id="formGroupExampleInput1" placeholder="Region"
+    <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Region"
            th:field="*{region}">
 
     <label for="formGroupExampleInput2" class="form-label"> Miasto </label>
-    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Miasto"th:field="*{city}">
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Miasto"th:field="*{city}">
 
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Utwórz</button>

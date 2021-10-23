@@ -32,6 +32,7 @@ public class TourService {
             log.error("Wycieczka nie została zapisana", exception);
             throw exception;
         }
+        tour.setAvailable(true);
         tourRepository.save(tour);
     }
 

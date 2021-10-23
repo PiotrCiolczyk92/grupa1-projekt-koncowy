@@ -5,6 +5,8 @@
     <title>Country update</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <h1> Country UPDATE</h1>
 <form th:object="${country}" method="post">
     <label>

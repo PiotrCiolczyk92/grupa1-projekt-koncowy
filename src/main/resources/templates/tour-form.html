@@ -6,6 +6,8 @@
 </head>
 </body>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <h1>Tworzenie wycieczki</h1>
 <form th:object="${tour}" method="post">
   <label>

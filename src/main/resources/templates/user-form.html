@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <title>Tworzneie użytkownika</title>
 </head>
-</body>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <form th:object="${user}" method="post">
     <h1>Tworzenie użytkownika</h1>
     <label>

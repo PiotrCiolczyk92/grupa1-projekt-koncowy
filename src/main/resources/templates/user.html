@@ -5,6 +5,8 @@
     <title>Strona główna dla użytkowników</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <a th:href="@{/user-list}"> Lista użytkowników </a>
 <a th:href="@{/user-add}"> Dodaj użytkownika </a>
 </body>

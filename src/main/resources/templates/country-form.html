@@ -5,6 +5,8 @@
     <title>Dodaj kraj</title>
 </head>
 <body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+
 <h1>Tworzenie kraju</h1>
 <form th:object="${country}" method="post">
     <label>

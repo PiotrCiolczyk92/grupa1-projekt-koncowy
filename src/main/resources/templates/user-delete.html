@@ -11,9 +11,9 @@
 <h1> Usuwanie użytkownika. </h1>
 <form th:object="${user}" method="post">
     <input type="hidden" th:field="*{id}">
-    <strong> Czy napewno chcesz usunąć użytkownika? </strong>
+    <h3> Czy napewno chcesz usunąć użytkownika? </h3>
     <br>
-    <input type="submit" value="TAK">
+    <input class="btn btn-primary" type="submit" value="TAK">
     <br>
 
     <button> <a class="btn btn-primary" th:href="@{/user-list}">NIE (wróć do listy użytkowników)</a> </button>

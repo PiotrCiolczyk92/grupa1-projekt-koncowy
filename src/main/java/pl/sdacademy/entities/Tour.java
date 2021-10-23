@@ -18,7 +18,7 @@ public class Tour {
     private Integer numberOfParticipants;
     private String country;
     private Integer price;
-    private boolean available;
+    private boolean available = true;
 
     public void setNumberOfParticipants(Integer numberOfParticipants) {
         this.numberOfParticipants = numberOfParticipants;

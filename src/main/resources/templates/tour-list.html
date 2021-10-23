@@ -32,10 +32,10 @@
             <td th:text="${tour.price}"></td>
             <td th:text="${tour.available}"></td>
             <td>
-                <button><a th:href="@{/update-tour/{id}(id=${tour.id})}"></a> UPDATE</button>
+                <a th:href="@{/update-tour/{id}(id=${tour.id})}"><button>UPDATE</button></a>
             </td>
             <td>
-                <button><a th:href="@{/delete-tour/{id}(id=${tour.id})}"></a> DELETE</button>
+                <a th:href="@{/delete-tour/{id}(id=${tour.id})}"><button>DELETE</button></a>
             </td>
         </tr>
         </tbody>

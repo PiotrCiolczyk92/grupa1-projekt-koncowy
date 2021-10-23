@@ -77,4 +77,10 @@ public class TourController {
     public String opinie() {
         return "opinie";
     }
+
+    @GetMapping("/onas")
+    public String onas() {
+        return "onas";
+    }
+
 }

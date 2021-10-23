@@ -11,7 +11,7 @@
   <body>
   <nav th:replace="fragments :: navbar(title='main')"></nav>
 
-  <h1> Tour update</h1>
+  <h1> Aktualizacja wycieczki </h1>
   <form th:object="${tour}" method="post">
     <div class="mb-3">
       <input type="hidden" th:field="*{id}">
@@ -25,7 +25,7 @@
       <label for="formGroupExampleInput3" class="form-label"> Cena wycieczki: </label>
       <input type="text" class="form-control" id="formGroupExampleInput3" th:field="*{price}">
 
-      <input type="submit" value="Update Tour">
+      <input type="submit" value="Aktualizuj">
     </div>
   </form>
   </body>

@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Lista użytkowników</title>
 </head>
+
 <body>
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
+<div class="conteiner">
 
 <h1>Lista użytkowników</h1>
-<table>
+
+
+<table class="table table-bordered border-primary">
     <tr>
         <th>ID użytkownika</th>
         <th>Imię</th>
@@ -26,7 +30,11 @@
         <td> <a th:href="@{/delete-user/{id}(id = ${user.id})}"> DELETE </a> </td>
     </tr>
 </table>
+
+
 <br>
-<button> <a th:href="@{/user-add}"> Dodaj użytkownika </a>   <strong></strong></button>
+<button > <a class="btn btn-primary" href="#" role="button"  th:href="@{/user-add}"> Dodaj użytkownika </a><strong></strong></button>
+</div>
 </body>
+
 </html>

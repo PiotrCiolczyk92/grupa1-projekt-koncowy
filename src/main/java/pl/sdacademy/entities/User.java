@@ -22,5 +22,9 @@ public class User {
     private String mobile;
     private String email;
 
+        public String getFullName(){
+            return firstName + " " + lastName;
+        }
+
 
 }

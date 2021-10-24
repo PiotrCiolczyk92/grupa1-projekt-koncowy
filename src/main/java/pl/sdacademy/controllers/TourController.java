@@ -6,9 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.entities.Location;
+import pl.sdacademy.entities.User;
 import pl.sdacademy.services.LocationService;
 import pl.sdacademy.services.TourService;
 import pl.sdacademy.entities.Tour;
+import pl.sdacademy.services.UserService;
 
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class TourController {
 
     private TourService tourService;
     private final LocationService locationService;
+    private final UserService userService;
 
 
 
@@ -36,7 +39,9 @@ public class TourController {
     @GetMapping("/add-tour")
     public String getForm(ModelMap modelMap, @ModelAttribute("tour") Tour tour) {
         List<Location> locations = locationService.getAll();
+        List<User> users = userService.getAll();
         modelMap.addAttribute("locations", locations);
+        modelMap.addAttribute("users", users);
         return "tour-form";
     }
 

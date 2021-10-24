@@ -1,20 +1,21 @@
 package pl.sdacademy.controllers;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.services.LocationService;
 import pl.sdacademy.entities.Location;
+import pl.sdacademy.services.TourService;
 
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class LocationController {
     private LocationService locationService;
 
-    public LocationController(LocationService locationService) {
-        this.locationService = locationService;
-    }
+
 
     @GetMapping("/location")
     public String mainView() {

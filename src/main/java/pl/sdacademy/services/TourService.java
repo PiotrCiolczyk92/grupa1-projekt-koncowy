@@ -43,7 +43,7 @@ public class TourService {
             Tour updatedTour = tourRepository.getById(tour.getId());
             updatedTour.setPrice(tour.getPrice());
             updatedTour.setNumberOfParticipants(tour.getNumberOfParticipants());
-            updatedTour.setCountry(tour.getCountry());
+            updatedTour.setLocation(tour.getLocation());
         }
             tourRepository.save(tour);
     }
@@ -53,5 +53,6 @@ public class TourService {
             tourRepository.delete(tour);
         }
     }
+
 
 }

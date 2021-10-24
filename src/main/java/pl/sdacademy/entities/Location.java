@@ -19,4 +19,7 @@ public class Location {
     private String region;
     private String city;
 
+    public String getFullLocation() {
+        return name + " " + " " + region + " " + city;
+    }
 }

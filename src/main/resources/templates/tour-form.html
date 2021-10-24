@@ -18,8 +18,12 @@
     <input type="number" class="form-control" id="formGroupExampleInput1" placeholder="Podaj ilość"
            th:field="*{numberOfParticipants}">
 
-    <label for="formGroupExampleInput2" class="form-label">Kraj</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Podaj kraj" th:field="*{country}">
+    <label for="formGroupExampleInput2" class="form-label">Kraj </label>
+    <select type="text" class="form-control" id="formGroupExampleInput2" placeholder="Podaj kraj" th:field="*{location}">
+      <option th:each="location: ${locations}" th:value="${location.id}" th:text="${location.fullLocation}"></option>
+    </select>
+
+
     <label for="formGroupExampleInput3" class="form-label">Cena wycieczki</label>
     <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Podaj kraj" th:field="*{price}">
     <div class="col-12">

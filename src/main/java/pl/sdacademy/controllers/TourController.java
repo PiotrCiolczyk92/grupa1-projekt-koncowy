@@ -1,22 +1,25 @@
 package pl.sdacademy.controllers;
 
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import pl.sdacademy.entities.Location;
+import pl.sdacademy.services.LocationService;
 import pl.sdacademy.services.TourService;
 import pl.sdacademy.entities.Tour;
 
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class TourController {
 
     private TourService tourService;
+    private final LocationService locationService;
 
-    public TourController(TourService tourService) {
-        this.tourService = tourService;
-    }
+
 
     @GetMapping("/tour")
     public String mainView() {
@@ -31,7 +34,9 @@ public class TourController {
     }
 
     @GetMapping("/add-tour")
-    public String getForm(@ModelAttribute("tour") Tour tour) {
+    public String getForm(ModelMap modelMap, @ModelAttribute("tour") Tour tour) {
+        List<Location> locations = locationService.getAll();
+        modelMap.addAttribute("locations", locations);
         return "tour-form";
     }
 

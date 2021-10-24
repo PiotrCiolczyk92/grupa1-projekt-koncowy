@@ -28,7 +28,7 @@
         <tr style="text-align: center;" th:each="tour: ${tours}">
             <td th:text="${tour.id}"></td>
             <td th:text="${tour.numberOfParticipants}"></td>
-            <td th:text="${tour.country}"></td>
+            <td th:text="${tour.location}"></td>
             <td th:text="${tour.price}"></td>
             <td>
                 <strong><span style="background-color: lime" th:if="${tour.available}">DOSTEPNA</span></strong>

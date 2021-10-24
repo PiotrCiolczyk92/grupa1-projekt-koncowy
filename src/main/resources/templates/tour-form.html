@@ -14,9 +14,14 @@
 <h1>Tworzenie wycieczki</h1>
 <form th:object="${tour}" method="post">
   <div class="mb-3">
-    <label for="formGroupExampleInput1" class="form-label"> Ilość uczestnikow wyczieczki </label>
-    <input type="number" class="form-control" id="formGroupExampleInput1" placeholder="Podaj ilość"
+    <label for="formGroupExampleInput" class="form-label"> Ilość uczestnikow wyczieczki </label>
+    <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Podaj ilość"
            th:field="*{numberOfParticipants}">
+    <label for="formGroupExampleInput1" class="form-label"> Organizator </label>
+    <select type="number" class="form-control" id="formGroupExampleInput1" placeholder="Wybierz organizatora"
+            th:field="*{user}">
+      <option th:each="user: ${users}" th:value="${user.id}" th:text="${user.fullName}"></option>
+    </select>
 
     <label for="formGroupExampleInput2" class="form-label">Kraj </label>
     <select type="text" class="form-control" id="formGroupExampleInput2"  th:field="*{location}">

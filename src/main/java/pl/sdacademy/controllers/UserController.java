@@ -1,5 +1,6 @@
 package pl.sdacademy.controllers;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +13,12 @@ import pl.sdacademy.entities.User;
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class UserController {
 
      private UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+
 
     @GetMapping("/user")
     public String mainView() {

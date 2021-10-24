@@ -4,11 +4,7 @@ package pl.sdacademy.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 
 @Setter
@@ -23,23 +19,4 @@ public class Tour {
     private Integer price;
     private boolean available = true;
 
-    public void setNumberOfParticipants(Integer numberOfParticipants) {
-        this.numberOfParticipants = numberOfParticipants;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

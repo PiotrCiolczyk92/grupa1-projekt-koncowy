@@ -12,7 +12,7 @@
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
 
 <h1> Aktualizacja kraju </h1>
-<form th:object="${country}" method="post">
+<form th:object="${location}" method="post">
     <div class="mb-3">
     <label>
         <input type="hidden" th:field="*{id}">

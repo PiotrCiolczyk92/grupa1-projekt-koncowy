@@ -7,19 +7,18 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="conteiner">
 <body>
+<div class="conteiner">
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
 
 <h1> Usuwanie kraju </h1>
-<form th:object="${country}" method="post">
+<form th:object="${location}" method="post">
     <input type="hidden" th:field="*{id}">
     <h3> Czy napewno chcesz usunąć?</h3>
     <br>
     <input class="btn btn-primary" type="submit" value="TAK">
-    <button> <a class="btn btn-primary" th:href="@{/country-list}">NIE (wróć do listy wycieczek)</a> </button>
-
+    <button> <a class="btn btn-primary" th:href="@{/location-list}">NIE (wróć do listy wycieczek)</a> </button>
 </form>
-</body>
 </div>
+</body>
 </html>

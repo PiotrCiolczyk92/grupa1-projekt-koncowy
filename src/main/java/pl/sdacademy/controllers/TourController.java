@@ -49,7 +49,9 @@ public class TourController {
     @GetMapping("/update-tour/{tourId}")
     public String getUpdateForm(@PathVariable("tourId") int id, ModelMap modelMap) {
         Tour tour = tourService.getById(id);
+        List<Location> locations = locationService.getAll();
         modelMap.addAttribute("tour", tour);
+         modelMap.addAttribute("locations", locations);
         return "tour-update";
     }
 

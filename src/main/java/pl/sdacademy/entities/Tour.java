@@ -19,5 +19,6 @@ public class Tour {
     private Location location;
     private Integer price;
     private boolean available = true;
-
+    @ManyToOne
+    private User user;
 }

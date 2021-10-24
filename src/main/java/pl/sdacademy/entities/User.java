@@ -21,6 +21,6 @@ public class User {
     private String lastName;
     private String mobile;
     private String email;
-    // dorzucic pole zarzadca / klient
+
 
 }

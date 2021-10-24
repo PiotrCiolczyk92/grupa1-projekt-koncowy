@@ -28,8 +28,8 @@
         <td th:text="${location.name}"></td>
         <td th:text="${location.region}"></td>
         <td th:text="${location.city}"></td>
-        <td> <a th:href="@{/update-location/{id}(id=${location.id})}"> Aktualizuj </a></td>
-        <td> <a th:href="@{/delete-location/{id}(id=${location.id})}"> Usuń </a></td>
+        <td> <a th:href="@{/update-location/{id}(id=${location.id})}"> <button> Aktualizuj </button> </a></td>
+        <td> <a th:href="@{/delete-location/{id}(id=${location.id})}"> <button> Usuń </button> </a></td>
     </tr>
     </tbody>
 

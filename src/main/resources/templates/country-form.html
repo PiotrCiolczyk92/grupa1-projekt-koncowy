@@ -13,6 +13,9 @@
 <h1>Tworzenie kraju</h1>
 <form th:object="${country}" method="post">
   <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label"> Nazwa kraju</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nazwa kraju"
+           th:field="*{name}">
     <label for="formGroupExampleInput1" class="form-label"> Region </label>
     <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Region"
            th:field="*{region}">

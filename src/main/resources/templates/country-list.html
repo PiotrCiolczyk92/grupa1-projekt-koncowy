@@ -16,6 +16,7 @@
     <thead>
 
     <tr>
+        <th>Nazwa kraju</th>
         <th>Region</th>
         <th>Miasto</th>
         <th>Aktualizacja</th>
@@ -24,6 +25,7 @@
     </thead>
     <tbody>
     <tr style="text-align: center;" th:each="country: ${countries}">
+        <td th:text="${country.name}"></td>
         <td th:text="${country.region}"></td>
         <td th:text="${country.city}"></td>
         <td> <a th:href="@{/update-country/{id}(id=${country.id})}"> Aktualizuj </a></td>

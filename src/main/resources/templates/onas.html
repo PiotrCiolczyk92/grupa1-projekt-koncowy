@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O Nas</title>
+  <style>
+      body {
+          background-image: url("https://monicabialucci.co.uk/wp-content/uploads/2017/10/biale-tlo.gif");
+      }
+  </style>
+</head>
+<body>
+<nav th:replace="fragments :: navbar(title='main')"> </nav>
+<div class="px-4 py-5 my-5 text-center">
+<div class="page-title">
+  <h2>O Nas</h2>
+  <p>"GroupOne Travel Ltd". to Polskie biuro podróży stworzone na potrzeby projektu końcowego. Nie posiadamy
+    żadnych zabezpiecze turystyczny co zapewnia 0% bezpieczeństwa. Powierzając Nam swoje wakacje, możesz być
+    pewien chujowego urlopu.</p>
+</div>
+  <div>
+    <a th:href="@{/}" type="button" class="btn btn-danger btn-lg px-10 gap-10">WSTECZ</a>
+  </div>
+</div>
+</body>
+</html>

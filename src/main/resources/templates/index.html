@@ -16,7 +16,7 @@
 </head>
 <body>
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
-  <h1 class="border border-dark bg-secondary text-center">GroupOne Travel </h1>
+  <h1 class="border border-dark bg-info bg-opacity-25 text-center"> GroupOne Travel </h1>
 <div class="container">
   <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
@@ -25,19 +25,19 @@
       </svg>
     </a>
   </header>
-  <div class="card bg-secondary border border-dark" style="width: 20rem; margin-left: -10px">
+  <div class="card bg-info border border-dark" style="width: 20rem; margin-left: -10px">
     <img src="https://podroze.smcloud.net/t/photos/t/143526/wakacje-marzen_1121356.jpg" class="card-img-top">
-    <div class="card-body bg-secondary">
+    <div class="card-body bg-info">
       <h5 class="card-title">Wakacje marzeń?</h5>
       <p class="card-text">Sprawdź listę Naszych wycieczek!<br>
         Najczęsciej wybierane miejsca to:</p>
     </div>
-    <ul class="list-group list-group-flush bg-secondary">
+    <ul class="list-group list-group-flush bg-info  bg-opacity-25">
       <li class="list-group-item">Radom</li>
       <li class="list-group-item">Sosnowiec</li>
       <li class="list-group-item">Nowy Młyn</li>
     </ul>
-    <div class="card-body bg-secondary">
+    <div class="card-body bg-info bg-opacity-25">
       <a th:href="@{/list-tour}" class="card-link text-dark">Sprawdź wszystkie tutaj</a>
     </div>
 
@@ -50,7 +50,7 @@
   </div>
 </div>
 <section id="about" class="bg-one">
-  <div class="container border border-dark bg-secondary mt-5 mb-5">
+  <div class="container border border-dark bg-info bg-opacity-25 mt-5 mb-5">
     <div class="row">
       <div class="text-center">
         <div class="page-title">
@@ -63,7 +63,7 @@
     </div>
   </div>
 </section>
-  <footer class="page-footer container border border-dark bg-secondary mt-5 mb-5">
+  <footer class="page-footer container border border-dark bg-info bg-opacity-25 mt-5 mb-5">
     <div class="container text-center text-md-left">
       <div class="row">
         <div class="col-md-4 mx-auto">

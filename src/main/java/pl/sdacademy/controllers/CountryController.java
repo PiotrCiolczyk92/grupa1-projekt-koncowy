@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.services.CountryService;
-import pl.sdacademy.entities.Country;
+import pl.sdacademy.entities.Location;
 
 import java.util.List;
 
@@ -23,44 +23,44 @@ public class CountryController {
 
     @GetMapping("/country-list")
     public String getList(ModelMap modelMap) {
-        List<Country> countries = countryService.getAll();
+        List<Location> countries = countryService.getAll();
         modelMap.addAttribute("countries", countries);
         return "country-list";
     }
 
     @GetMapping("/country-add")
-    public String getForm(@ModelAttribute("country") Country country) {
+    public String getForm(@ModelAttribute("country") Location country) {
         return "country-form";
     }
 
     @PostMapping("/country-add")
-    public String create(Country country) {
+    public String create(Location country) {
         countryService.create(country);
         return "redirect:/country-list";
     }
 
     @GetMapping("update-country/{countryId}")
     public String getUpdateForm(@PathVariable("countryId") int id, ModelMap modelMap) {
-        Country country = countryService.getById(id);
+        Location country = countryService.getById(id);
         modelMap.addAttribute("country", country);
         return "country-update";
     }
 
     @PostMapping("update-country/{tourId}")
-    public String update(Country country) {
+    public String update(Location country) {
         countryService.update(country);
         return "redirect:/country-list";
     }
 
     @GetMapping("delete-country/{countryId}")
     public String deleteTour(@PathVariable("countryId") int id, ModelMap modelMap) {
-        Country country = countryService.getById(id);
+        Location country = countryService.getById(id);
         modelMap.addAttribute("country", country);
         return "country-delete";
     }
 
     @PostMapping("delete-country/{countryId}")
-    public String delete(Country country) {
+    public String delete(Location country) {
         countryService.delete(country);
         return "redirect:/country-list";
     }

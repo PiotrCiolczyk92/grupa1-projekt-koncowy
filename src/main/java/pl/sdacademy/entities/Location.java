@@ -11,13 +11,12 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Country {
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String region;
     private String city;
-
 
 }

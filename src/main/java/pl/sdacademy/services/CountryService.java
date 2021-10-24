@@ -2,8 +2,7 @@ package pl.sdacademy.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.sdacademy.entities.Country;
-import pl.sdacademy.entities.Tour;
+import pl.sdacademy.entities.Location;
 import pl.sdacademy.repositories.CountryRepository;
 
 import java.util.List;
@@ -17,15 +16,15 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
-    public List<Country> getAll() {
+    public List<Location> getAll() {
         return countryRepository.findAll();
     }
 
-    public Country getById(int id) {
+    public Location getById(int id) {
         return countryRepository.getById(id);
     }
 
-    public void create(Country country) {
+    public void create(Location country) {
         if (country.getId() != null) {
             IllegalArgumentException exception = new IllegalArgumentException("Dodawany kraj nie powinien mieć już istniejącego ID");
             log.error("Kraj nie został zapisany", exception);
@@ -34,16 +33,16 @@ public class CountryService {
         countryRepository.save(country);
     }
 
-    public void update(Country country) {
+    public void update(Location country) {
         if (country.getId() != null) {
-            Country updateCountry = countryRepository.getById(country.getId());
+            Location updateCountry = countryRepository.getById(country.getId());
             updateCountry.setRegion(country.getRegion());
             updateCountry.setCity(country.getCity());
         }
         countryRepository.save(country);
     }
 
-    public void delete(Country country) {
+    public void delete(Location country) {
         if (country.getId() != null) {
             countryRepository.delete(country);
         }

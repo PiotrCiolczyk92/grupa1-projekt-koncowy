@@ -20,6 +20,6 @@ public class Location {
     private String city;
 
     public String getFullLocation() {
-        return name + " " + " " + region + " " + city;
+        return "Kraj: " + name + " Region: " + region + " Miasto: " + city;
     }
 }

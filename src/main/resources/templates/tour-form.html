@@ -18,7 +18,7 @@
     <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Podaj ilość"
            th:field="*{numberOfParticipants}">
     <label for="formGroupExampleInput1" class="form-label"> Organizator </label>
-    <select type="number" class="form-control" id="formGroupExampleInput1" placeholder="Wybierz organizatora"
+    <select type="number" class="form-control" id="formGroupExampleInput1"
             th:field="*{user}">
       <option th:each="user: ${users}" th:value="${user.id}" th:text="${user.fullName}"></option>
     </select>

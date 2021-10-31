@@ -15,19 +15,23 @@
 <body>
 <nav th:replace="fragments :: navbar(title='main')"></nav>
 <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold">SKONTAKTUJ SIĘ Z NAMI</h1>
+    <h1 class="display-5 fw-bold">SKONTAKTUJ SIĘ Z NAMI</h1><br>
     <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Pod numerem telefonu: +48 502 062 704<br>
+        <p class="lead mb-4">Pod numerem telefonu: +48 502 062 704<br><br>
             <strong> Napisz do nas maila: </strong>
         </p>
-        <div>
-            <textarea cols="100" rows="10"> </textarea>
+            <form role="form" method="post" enctype="text/plain">
+                Imię:<br>
+                <input class="border border-dark" type="text" name="imię"><br>
+                E-mail:<br>
+                <input class="border border-dark" type="text" name="mail"><br>
+                Wiadomość:<br>
+                <textarea class="form-control border border-dark" type="textarea" name="message" id="message" maxlength="6000" rows="7"></textarea>
+                <br>
+                <input class="btn btn-primary btn-lg px-4 gap-3 " type="submit" value="Wyślij">
+                <input type="reset" value="Wyczyść">
+            </form>
             <br>
-            <label> Imię: </label>
-            <input type="text" placeholder="Podaj swoje imię">
-            <br>
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3 ">Email</button>
-        </div>
         <hr>
         <div>
             <a th:href="@{/}" type="button" class="btn btn-danger btn-lg px-10 gap-10">WSTECZ</a>

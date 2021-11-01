@@ -17,8 +17,13 @@ public class Tour {
     private Integer numberOfParticipants;
     @ManyToOne
     private Location location;
+    @OneToOne
+    private Location placeOfArrival;
+    @OneToOne
+    private Location placeOfDeparture;
     private Integer price;
     private boolean available = true;
     @ManyToOne
     private User user;
+
 }

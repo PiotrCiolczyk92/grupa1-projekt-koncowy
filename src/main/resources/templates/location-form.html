@@ -14,17 +14,16 @@
 <form th:object="${location}" method="post">
     <div class="mb-3">
 
-        <label > Nazwa kraju</label>
-        <select name="country">
-            <option th:each="countryPick : ${T(pl.sdacademy.enums.Country).values()}"
-                    th:value="${countryPick}" th:text="${countryPick.displayValue}"></option>
-        </select>
-        <label for="formGroupExampleInput1" class="form-label"> Region </label>
-        <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Region"
+        <label class="form-label"> Kraj </label>
+        <input type="text" class="form-control" placeholder="Kraj"
+               th:field="*{country}">
+
+        <label  class="form-label"> Region </label>
+        <input type="text" class="form-control" placeholder="Region"
                th:field="*{region}">
 
-        <label for="formGroupExampleInput2" class="form-label"> Miasto </label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Miasto" th:field="*{city}">
+        <label class="form-label"> Miasto </label>
+        <input type="text" class="form-control" placeholder="Miasto" th:field="*{city}">
 
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Utwórz</button>

@@ -26,7 +26,7 @@
     </thead>
     <tbody>
     <tr style="text-align: center;" th:each="location: ${locations}">
-        <td th:text="${location.getCountry.displayValue}"></td>
+        <td th:text="${location.getCountry}"></td>
         <td th:text="${location.region}"></td>
         <td th:text="${location.city}"></td>
         <td> <a th:href="@{/update-location/{id}(id=${location.id})}"> <button> Aktualizuj </button> </a></td>

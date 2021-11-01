@@ -15,11 +15,14 @@
         <label> Nazwa Lotniska </label>
         <input type="text" placeholder="Podaj nazwe lotniska" th:field="*{name}">
         <label> Lokalizacja </label>
-        <select type="text" th:field="*{location}">
-            <option th:each="location: ${locations}" th:value="${location.getCountry}" th:text="${location.getCountry}"></option>
+        <select type="text" class="form-control" th:field="*{location}">
+            <option
+                    th:each="location : ${locations}" th:value="${location.id}"
+                    th:text="${location.getFullLocation()}">
+            </option>
         </select>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary"> Utwórz lotnisko </button>
+            <button type="submit" class="btn btn-primary"> Utwórz lotnisko</button>
         </div>
     </div>
 </form>

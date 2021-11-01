@@ -23,10 +23,12 @@
         <tr style="text-align: center;" th:each="airport: ${airports}">
             <td th:text="${airport.getId()}"></td>
             <td th:text="${airport.getName()}"></td>
-            <td th:text="${airport.getLocation().getCountry()}"></td>
+            <td th:text="${airport.getLocation().getFullLocation()}"></td>
         </tr>
         </tbody>
     </table>
 </div>
+    <button><a class="btn btn-primary btn-lg px-8 gap-8" th:href="@{/add-airport}"> Dodaj Lotnisko </a></button>
+    <a th:href="@{/}" type="button" class="btn btn-danger btn-lg px-8 gap-8">Wstecz</a>
 </body>
 </html>

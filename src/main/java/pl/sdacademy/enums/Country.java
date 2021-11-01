@@ -1,4 +1,4 @@
-package pl.sdacademy.entities;
+package pl.sdacademy.enums;
 
 public enum Country {
     POLAND("Polska"),

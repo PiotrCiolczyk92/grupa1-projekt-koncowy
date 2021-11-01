@@ -16,7 +16,7 @@
 
         <label > Nazwa kraju</label>
         <select name="country">
-            <option th:each="countryPick : ${T(pl.sdacademy.entities.Country).values()}"
+            <option th:each="countryPick : ${T(pl.sdacademy.enums.Country).values()}"
                     th:value="${countryPick}" th:text="${countryPick.displayValue}"></option>
         </select>
         <label for="formGroupExampleInput1" class="form-label"> Region </label>

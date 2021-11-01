@@ -2,6 +2,7 @@ package pl.sdacademy.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.sdacademy.enums.Country;
 
 import javax.persistence.*;
 

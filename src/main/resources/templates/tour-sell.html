@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <nav th:replace="fragments :: navbar(title='main')"></nav>
-    <form th:object="${tour}" method="post">
-        <div class="mb-3">
+<nav th:replace="fragments :: navbar(title='main')"></nav>
+<form th:object="${tour}" method="post">
+    <div class="mb-3">
         <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{user}">
         <label>Max osob</label>
         <input type="text" th:field="*{maxNumberOfParticipants}" th:value="*{maxNumberOfParticipants}">
         <br>
@@ -28,15 +29,15 @@
         <input type="text" th:field="*{price}" th:value="*{price}">
         <br>
         <label>Klient</label>
-        <select type="text" class="form-control"th:field="*{customer}">
+        <select type="text" class="form-control" th:field="*{customer}">
             <option
-                th:each="customer : ${customers}" th:value="${customer.getId()}"
-                th:text="${customer.getFullName()}">
+                    th:each="customer : ${customers}" th:value="${customer.getId()}"
+                    th:text="${customer.getFullName()}">
             </option>
         </select>
-            <input type="submit" value="Sprzedaj">
-        </div>
+        <input type="submit" value="Sprzedaj">
+    </div>
 
-    </form>
+</form>
 </body>
 </html>

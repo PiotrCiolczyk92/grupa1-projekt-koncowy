@@ -45,12 +45,14 @@ public class TourService {
             updatedTour.setNumberOfParticipants(tour.getNumberOfParticipants());
             updatedTour.setMaxNumberOfParticipants(tour.getMaxNumberOfParticipants());
             updatedTour.setLocation(tour.getLocation());
+            updatedTour.setUser(tour.getUser());
         }
         tourRepository.save(tour);
     }
 
     public void sell(Tour tour) {
         if (tour.getId() != null) {
+            update(tour);
             tour.setCustomer(tour.getCustomer());
             tour.setAvailable(false);
         }

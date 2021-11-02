@@ -85,7 +85,6 @@ public class TourController {
 
     @PostMapping("sell-tour/{tourId}")
     public String sell(Tour tour) {
-        tourService.update(tour);
         tourService.sell(tour);
         return "redirect:/list-tour";
     }

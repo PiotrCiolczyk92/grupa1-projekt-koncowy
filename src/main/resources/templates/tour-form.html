@@ -17,7 +17,7 @@
   <div class="mb-3">
     <label class="form-label" style="margin-left: 10px"><strong>Max liczba uczestników</strong></label>
     <input type="number" class="form-control" placeholder="Podaj ilość uczestników"
-           th:field="*{maxNumberOfParticipants}">
+           th:field="*{maxNumberOfParticipants}" th:value="*{maxNumberOfParticipants}">
     <label class="form-label" style="margin-left: 10px"><strong>Obecna liczba uczestników </strong></label>
     <input type="number" class="form-control" placeholder="Podaj ilość uczestników"
            th:value="0">

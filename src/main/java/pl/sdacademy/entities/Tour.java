@@ -14,7 +14,7 @@ public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer numberOfParticipants;
+    private Integer numberOfParticipants = 0;
     private Integer maxNumberOfParticipants;
     @ManyToOne
     private Location location;

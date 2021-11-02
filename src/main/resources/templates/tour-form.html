@@ -7,30 +7,49 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-</body>
+
 <body>
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
 
 <h1>Tworzenie wycieczki</h1>
+<br>
 <form th:object="${tour}" method="post">
   <div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label"> Ilość uczestnikow wyczieczki </label>
-    <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Podaj ilość"
-           th:field="*{numberOfParticipants}">
-    <label for="formGroupExampleInput1" class="form-label"> Organizator </label>
-    <select type="number" class="form-control" id="formGroupExampleInput1"
+    <label class="form-label" style="margin-left: 10px"><strong>Max liczba uczestników</strong></label>
+    <input type="number" class="form-control" placeholder="Podaj ilość uczestników"
+           th:field="*{maxNumberOfParticipants}">
+    <label class="form-label" style="margin-left: 10px"><strong>Obecna liczba uczestników </strong></label>
+    <input type="number" class="form-control" placeholder="Podaj ilość uczestników"
+           th:value="0">
+    <label class="form-label" style="margin-left: 10px"><strong>Organizator</strong></label>
+    <select type="number" class="form-control"
             th:field="*{user}">
       <option th:each="user: ${users}" th:value="${user.id}" th:text="${user.fullName}"></option>
     </select>
 
-    <label for="formGroupExampleInput2" class="form-label">Kraj </label>
-    <select type="text" class="form-control" id="formGroupExampleInput2"  th:field="*{location}">
+    <label class="form-label" style="margin-left: 10px"><strong>Kraj</strong></label>
+    <select type="text" class="form-control"  th:field="*{location}">
       <option th:each="location: ${locations}" th:value="${location.id}" th:text="${location.fullLocation}"></option>
     </select>
 
+    <label class="form-control" style="margin-left: 10px"><strong>Odlot</strong></label>
+    <select type="text" class="form-control" th:field="*{placeOfDeparture}">
+      <option
+              th:each="placeOfDeparture : ${airports}" th:value="${placeOfDeparture.id}"
+              th:text="${placeOfDeparture.airportDetail()}">
+      </option>
+    </select>
 
-    <label for="formGroupExampleInput3" class="form-label">Cena wycieczki</label>
-    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Podaj cenę" th:field="*{price}">
+    <label class="form-control" style="margin-left: 10px"><strong>Przylot</strong></label>
+    <select type="text" class="form-control" th:field="*{placeOfArrival}">
+      <option
+              th:each="placeOfArrival : ${airports}" th:value="${placeOfArrival.id}"
+              th:text="${placeOfArrival.airportDetail()}">
+      </option>
+    </select>
+
+    <label class="form-label" style="margin-left: 10px"><strong>Cena wycieczki</strong></label>
+    <input type="text" class="form-control" placeholder="Podaj cenę" th:field="*{price}">
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Utwórz wycieczkę </button>
     </div>

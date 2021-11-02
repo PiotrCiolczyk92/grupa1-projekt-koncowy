@@ -16,19 +16,28 @@
         <thead>
         <tr style="text-align: center;">
             <th>ID wycieczki</th>
-            <th>Liczba uczestników</th>
-            <th>Lokalizacja</th>
-            <th>Cena</th>
+            <th>Organizator</th>
+            <th>Max liczba uczestników</th>
+            <th>Obecna liczba uczestników</th>
+            <th>Kierunek</th>
+            <th>Odlot</th>
+            <th>Przylot</th>
+            <th>Cena za osobe</th>
             <th>Dostępność</th>
-            <th>Aktualizacja</th>
-            <th>Usuwanie</th>
+            <th>Update</th>
+            <th>Sell</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
         <tr style="text-align: center;" th:each="tour: ${tours}">
             <td th:text="${tour.id}"></td>
+            <td th:text="${tour.user.getFullName()}"></td>
+            <td th:text="${tour.maxNumberOfParticipants}"></td>
             <td th:text="${tour.numberOfParticipants}"></td>
             <td th:text="${tour.location.fullLocation}"></td>
+            <td th:text="${tour.placeOfDeparture.location.country}"></td>
+            <td th:text="${tour.placeOfArrival.location.country}"></td>
             <td th:text="${tour.price}"></td>
             <td>
                 <strong><span style="background-color: lime" th:if="${tour.available}">DOSTEPNA</span></strong>
@@ -36,6 +45,9 @@
             </td>
             <td>
                 <a th:href="@{/update-tour/{id}(id=${tour.id})}"><button>Aktualizuj</button></a>
+            </td>
+            <td>
+                <a th:href="@{/sell-tour/{id}(id=${tour.id})}"><button>Sprzedaj</button></a>
             </td>
             <td>
                 <a th:href="@{/delete-tour/{id}(id=${tour.id})}"><button>Usuń</button></a>

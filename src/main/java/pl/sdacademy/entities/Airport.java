@@ -17,4 +17,8 @@ public class Airport {
     @OneToOne
     private Location location;
 
+    public String airportDetail() {
+        return "Kraj: " + location.getCountry();
+    }
+
 }

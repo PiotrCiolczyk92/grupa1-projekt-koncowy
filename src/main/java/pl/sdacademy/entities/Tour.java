@@ -15,15 +15,23 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer numberOfParticipants;
+    private Integer maxNumberOfParticipants;
     @ManyToOne
     private Location location;
-    @OneToOne
-    private Location placeOfArrival;
-    @OneToOne
-    private Location placeOfDeparture;
+    @ManyToOne
+    private Airport placeOfArrival;
+    @ManyToOne
+    private Airport placeOfDeparture;
     private Integer price;
     private boolean available = true;
     @ManyToOne
     private User user;
+    @ManyToOne
+    private User customer;
+
+    public String getTourInfo() {
+        return "Max number of participants: " + maxNumberOfParticipants + " / " + "Destination: " + location +
+                " / " + "Price per person: " + price;
+    }
 
 }

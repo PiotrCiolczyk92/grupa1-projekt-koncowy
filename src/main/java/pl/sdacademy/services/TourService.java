@@ -37,15 +37,24 @@ public class TourService {
     }
 
     public void update(Tour tour) {
-            //Obsługa żądania metodą POST (nie potrzebujemy już id przekazywać w ścieżce lub url)
+        //Obsługa żądania metodą POST (nie potrzebujemy już id przekazywać w ścieżce lub url)
         // sprawdzi, czy jest zadany id - jeśli tak, to aktualizujemy, jeśli nie, to dodajemy
         if (tour.getId() != null) {
             Tour updatedTour = tourRepository.getById(tour.getId());
             updatedTour.setPrice(tour.getPrice());
             updatedTour.setNumberOfParticipants(tour.getNumberOfParticipants());
+            updatedTour.setMaxNumberOfParticipants(tour.getMaxNumberOfParticipants());
             updatedTour.setLocation(tour.getLocation());
         }
-            tourRepository.save(tour);
+        tourRepository.save(tour);
+    }
+
+    public void sell(Tour tour) {
+        if (tour.getId() != null) {
+            tour.setCustomer(tour.getCustomer());
+            tour.setAvailable(false);
+        }
+        tourRepository.save(tour);
     }
 
     public void delete(Tour tour) {

@@ -2,11 +2,14 @@ package pl.sdacademy.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.sdacademy.entities.Tour;
+import pl.sdacademy.services.TourService;
 import pl.sdacademy.services.UserService;
 import pl.sdacademy.entities.User;
 
@@ -17,13 +20,8 @@ import java.util.List;
 public class UserController {
 
      private UserService userService;
+     private final TourService tourService;
 
-
-
-    @GetMapping("/user")
-    public String mainView() {
-        return "user";
-    }
 
     @GetMapping("/user-list")
     public String getUserList(ModelMap modelMap) {

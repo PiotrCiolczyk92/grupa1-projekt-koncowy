@@ -1,7 +1,11 @@
 package pl.sdacademy.services;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import pl.sdacademy.entities.Tour;
 import pl.sdacademy.entities.User;
 import pl.sdacademy.repositories.UserRepository;
 
@@ -9,12 +13,14 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final TourService tourService;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, TourService tourService) {
         this.userRepository = userRepository;
+        this.tourService = tourService;
     }
 
     public List<User> getAll() {
@@ -33,7 +39,6 @@ public class UserService {
             throw exception;
         }
         userRepository.save(user);
-
     }
 
     public void update(User user) {
@@ -44,15 +49,17 @@ public class UserService {
             updatedUser.setMobile(user.getMobile());
             updatedUser.setEmail(user.getEmail());
         }
-            userRepository.save(user);
-
-
+        userRepository.save(user);
     }
 
     public void delete(User user) {
-        if(user.getId() != null) {
+        if (user.getId() != null) {
             userRepository.delete(user);
         }
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
+    }
 }

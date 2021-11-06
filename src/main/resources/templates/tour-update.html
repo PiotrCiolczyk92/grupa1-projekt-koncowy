@@ -25,7 +25,7 @@
                 <option th:each="user: ${users}" th:value="${user.getId()}" th:text="${user.getFullName()}"></option>
             </select>
             <label class="form-label"> Kraj: </label>
-            <select type="text" class="form-control"th:field="*{location}">
+            <select type="text" class="form-control" th:field="*{location}">
                 <option th:each="location: ${locations}" th:value="${location.getId()}"
                         th:text="${location.getFullLocation()}"></option>
             </select>

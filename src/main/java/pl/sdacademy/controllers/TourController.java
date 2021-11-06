@@ -25,7 +25,6 @@ public class TourController {
     private final UserService userService;
     private final AirportService airportService;
 
-
     @GetMapping("/tour")
     public String mainView() {
         return "tour";
@@ -88,7 +87,6 @@ public class TourController {
         tourService.sell(tour);
         return "redirect:/list-tour";
     }
-
 
     @GetMapping("/delete-tour/{tourId}")
     public String deleteTour(@PathVariable("tourId") int id, ModelMap modelMap) {

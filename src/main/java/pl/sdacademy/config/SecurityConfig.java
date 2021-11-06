@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.sdacademy.services.UserService;
 
@@ -22,11 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
-                .loginPage("/")
+                .loginPage("/login")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/list-tour").hasRole("USER")
+                .antMatchers("/", "/login", "/list-tour", "/user-add", "/user-list"
+                ,"/location-list", "/location-add", "/update-location", "/delete-location").permitAll()
+                .antMatchers("/add-tour").hasRole("USER")
                 .antMatchers("/add-tour").hasRole("ADMIN")
                 .anyRequest().authenticated();
     }
@@ -38,6 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance();
     }
 }

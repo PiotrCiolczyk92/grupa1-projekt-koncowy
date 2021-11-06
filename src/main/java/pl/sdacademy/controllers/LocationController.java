@@ -15,13 +15,6 @@ import java.util.List;
 public class LocationController {
     private LocationService locationService;
 
-
-
-    @GetMapping("/location")
-    public String mainView() {
-        return "location";
-    }
-
     @GetMapping("/location-list")
     public String getList(ModelMap modelMap) {
         List<Location> locations = locationService.getAll();

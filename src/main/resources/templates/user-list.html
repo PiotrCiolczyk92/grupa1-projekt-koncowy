@@ -21,6 +21,7 @@
         <th>Nazwisko</th>
         <th>Telefon</th>
         <th>Email</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.mobile}"></td>
         <td th:text="${user.email}"></td>
+        <td th:text="${user.role}"></td>
         <td>
             <a th:href="@{/update-user/{id}(id = ${user.id})}"><button>Zmień</button></a>
         </td>

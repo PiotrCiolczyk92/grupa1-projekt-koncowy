@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.sdacademy.entities.Role;
 import pl.sdacademy.entities.Tour;
 import pl.sdacademy.services.TourService;
 import pl.sdacademy.services.UserService;
@@ -37,6 +38,8 @@ public class UserController {
 
     @PostMapping("/user-add")
     public String create(User user) {
+        user.setRole(Role.USER);
+        user.setTours(null);
         userService.create(user);
         return "redirect:/user-list";
     }

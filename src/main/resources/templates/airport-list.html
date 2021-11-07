@@ -15,9 +15,9 @@
     <table class="table" border="5">
         <thead>
         <tr style="text-align: center;">
-            <th>ID lotniska</th>
-            <th>Nazwa lotniska</th>
-            <th>Lokalizacja lotniska</th>
+            <th>Airport ID</th>
+            <th>Airport name</th>
+            <th>Airport Location</th>
         </tr>
         </thead>
         <tbody>
@@ -25,11 +25,13 @@
             <td th:text="${airport.getId()}"></td>
             <td th:text="${airport.getName()}"></td>
             <td th:text="${airport.getLocation().getFullLocation()}"></td>
+            <td> <a th:href="@{/delete-airport/{id}(id=${airport.id})}"> <button> DELETE </button> </a></td>
+
         </tr>
         </tbody>
     </table>
 </div>
-    <button><a class="btn btn-primary btn-lg px-8 gap-8" th:href="@{/add-airport}"> Dodaj Lotnisko </a></button>
-    <a th:href="@{/}" type="button" class="btn btn-danger btn-lg px-8 gap-8">Wstecz</a>
+    <button><a class="btn btn-primary btn-lg px-8 gap-8" th:href="@{/add-airport}"> Add airport </a></button>
+    <a th:href="@{/}" type="button" class="btn btn-danger btn-lg px-8 gap-8"> Back </a>
 </body>
 </html>

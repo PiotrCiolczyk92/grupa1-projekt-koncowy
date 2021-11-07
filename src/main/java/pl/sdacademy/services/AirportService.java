@@ -3,6 +3,7 @@ package pl.sdacademy.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.sdacademy.entities.Airport;
+import pl.sdacademy.entities.Location;
 import pl.sdacademy.entities.Tour;
 import pl.sdacademy.repositories.AriportRepository;
 
@@ -33,5 +34,11 @@ public class AirportService {
             throw exception;
         }
         ariportRepository.save(airport);
+    }
+    public void delete(Airport airport) {
+        if (airport.getId() != null) {
+            ariportRepository.delete(airport);
+        }
+        ariportRepository.delete(airport);
     }
 }

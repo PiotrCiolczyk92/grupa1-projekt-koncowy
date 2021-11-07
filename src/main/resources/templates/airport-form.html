@@ -9,12 +9,15 @@
 </head>
 <body>
 <nav th:replace="fragments :: navbar(title='main')"></nav>
-<h1>Dodawanie lotniska</h1>
-<form th:object="${airport}" method="post">
+<div class="container">
+<h1>Add airport</h1>
+<form th:object="${airport}" th:action="@{/add-airport}" method="post">
     <div class="mb-3">
-        <label> Nazwa Lotniska </label>
-        <input type="text" placeholder="Podaj nazwe lotniska" th:field="*{name}">
-        <label> Lokalizacja </label>
+        <label class="form-label"> Airport name </label>
+        <input class="form-control"  type="text" placeholder="Airport name" th:field="*{name}"
+               th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : (${#fields.hasErrors()} ? 'is-valid' : '')">
+        <div class="invalid-feedback" th:errors="*{name}"></div>
+        <label> Location </label>
         <select type="text" class="form-control" th:field="*{location}">
             <option
                     th:each="location : ${locations}" th:value="${location.id}"
@@ -22,9 +25,11 @@
             </option>
         </select>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary"> Utwórz lotnisko</button>
+            <button type="submit" class="btn btn-primary"> Create Airport </button>
         </div>
     </div>
 </form>
+</div>
 </body>
+
 </html>

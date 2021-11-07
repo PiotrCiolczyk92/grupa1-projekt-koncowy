@@ -8,28 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav th:replace="fragments :: navbar(title='main')"></nav>
 
+<nav th:replace="fragments :: navbar(title='main')"></nav>
+<div class="container">
 <h1>Tworzenie kraju</h1>
 <form th:object="${location}" th:action="@{/location-add}" method="post">
     <div class="mb-3">
 
         <label class="form-label"> Kraj </label>
-        <input type="text" class="form-control" placeholder="Kraj"
-               th:field="*{country}">
 
-        <label  class="form-label"> Region </label>
-        <input type="text" class="form-control" placeholder="Region"
-               th:field="*{region}">
-
-        <label class="form-label"> Miasto </label>
-        <input type="text" class="form-control" placeholder="Miasto" th:field="*{city}">
-
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Utwórz</button>
-        </div>
-    </div>
-</form>
-.
-</body>
-</html>
+        <input class="form-control" type="text" th:field="*{country}"
+               th:classappend="${#fields.hasErrors('country')} ? 'is-invalid' : (${#fields.hasErrors()} ? 'is-valid' : '')">
+      <div class="invalid-feedback" th:errors="*{country}"></div>
+      <label  class="form-label"> Region </label>
+      <input class="form-control" type="text" th:field="*{region}"
+                       th:classappend="${#fields.hasErrors('region')} ? 'is-invalid' : (${#fields.hasErrors()} ? 'is-valid' : '')">
+      <div class="invalid-feedback" th:errors="*{region}"></div>
+      <label class="form-label"> Miasto </label>
+      <input class="form-control" type="text" th:field="*{city}"
+             th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : (${#fields.hasErrors()} ? 'is-valid' : '')">
+      <div class="invalid-feedback" th:errors="*{city}"></div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Utwórz</button>
+                </div>
+            </div>
+        </form>
+      </div>
+        </body>
+        </html>

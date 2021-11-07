@@ -3,6 +3,8 @@ package pl.sdacademy.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,13 +29,16 @@ public class AirportController {
         return "/airport-list";
     }
     @GetMapping("/add-airport")
-    public String getForm(ModelMap modelMap, @ModelAttribute("airport") Airport airport) {
+    public String getForm(ModelMap modelMap, @ModelAttribute("airport") Airport airport, BindingResult bindingResult) {
         List<Location> locations = locationService.getAll();
         modelMap.addAttribute("locations", locations);
         return "airport-form";
     }
     @PostMapping("/add-airport")
-    public String create(Airport airport) {
+    public String create(@Validated Airport airport, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "airport-form";
+        }
         airportService.create(airport);
         return "redirect:/list-airport";
     }

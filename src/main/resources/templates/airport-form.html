@@ -11,7 +11,7 @@
 <nav th:replace="fragments :: navbar(title='main')"></nav>
 <div class="container">
 <h1>Add airport</h1>
-<form th:object="${airport}" th:action="@{/add-airport}" method="post">
+<form th:object="${airport}" th:action="@{add-airport}" method="post">
     <div class="mb-3">
         <label class="form-label"> Airport name </label>
         <input class="form-control"  type="text" placeholder="Airport name" th:field="*{name}"

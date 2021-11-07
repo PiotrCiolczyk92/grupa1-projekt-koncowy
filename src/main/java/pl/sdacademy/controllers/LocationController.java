@@ -3,6 +3,8 @@ package pl.sdacademy.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.services.LocationService;
 import pl.sdacademy.entities.Location;
@@ -23,12 +25,15 @@ public class LocationController {
     }
 
     @GetMapping("/location-add")
-    public String getForm(@ModelAttribute("location") Location location) {
+    public String getBootstrapLocationForm(@ModelAttribute("location") Location location) {
         return "location-form";
     }
 
     @PostMapping("/location-add")
-    public String create(Location location) {
+    public String bootstrapLocationCreate(@Validated Location location, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "location-form";
+        }
         locationService.create(location);
         return "redirect:/location-list";
     }
@@ -58,5 +63,6 @@ public class LocationController {
         locationService.delete(location);
         return "redirect:/location-list";
     }
+
 
 }

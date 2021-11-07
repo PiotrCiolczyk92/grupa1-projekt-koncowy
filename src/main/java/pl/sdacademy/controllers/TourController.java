@@ -4,6 +4,8 @@ package pl.sdacademy.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.sdacademy.entities.Airport;
 import pl.sdacademy.entities.Location;
@@ -14,6 +16,7 @@ import pl.sdacademy.services.TourService;
 import pl.sdacademy.entities.Tour;
 import pl.sdacademy.services.UserService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -49,7 +52,10 @@ public class TourController {
     }
 
     @PostMapping("/add-tour")
-    public String create(Tour tour) {
+    public String create(@Validated Tour tour, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "tour-form";
+        }
         tourService.create(tour);
         return "redirect:/list-tour";
     }
@@ -68,7 +74,7 @@ public class TourController {
     }
 
     @PostMapping("/update-tour/{tourId}")
-    public String update(Tour tour) {
+    public String update(@Validated Tour tour) {
         tourService.update(tour);
         return "redirect:/list-tour";
     }

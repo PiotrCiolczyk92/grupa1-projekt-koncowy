@@ -11,28 +11,33 @@
 <body>
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
 
-<h1>Tworzenie wycieczki</h1>
+<h1>Creating tour</h1>
 <br>
-<form th:object="${tour}" method="post">
+<form th:object="${tour}" th:action="@{add-tour}" method="post">
   <div class="mb-3">
-    <label class="form-label" style="margin-left: 10px"><strong>Max liczba uczestników</strong></label>
-    <input type="number" class="form-control" placeholder="Podaj ilość uczestników"
-           th:field="*{maxNumberOfParticipants}" th:value="*{maxNumberOfParticipants}">
-    <label class="form-label" style="margin-left: 10px"><strong>Obecna liczba uczestników </strong></label>
-    <input type="number" class="form-control" placeholder="Podaj ilość uczestników"
-           th:value="0">
-    <label class="form-label" style="margin-left: 10px"><strong>Organizator</strong></label>
+    <label class="form-label " style="margin-left: 10px"><strong>Maximum number of participants </strong></label>
+    <input type="number" class="form-control" placeholder="Give numer of participants" th:field="*{maxNumberOfParticipants}"
+           th:classappend="${#fields.hasErrors('maxNumberOfParticipants')} ? 'is-invalid' : (${#fields.hasErrors()} ? 'is-valid' : '')">
+      <div class="invalid-feedback" th:errors="*{maxNumberOfParticipants}"></div>
+    </div>
+    <div>
+    <label class="form-label" style="margin-left: 10px"><strong>Currently number of participants </strong></label>
+    <input type="number" class="form-control" placeholder="Give numer of participants"
+           th:field="*{numberOfParticipants}" th:value="*{numberOfParticipants}">
+      <span th:errors="*{numberOfParticipants}"></span>
+    </div>
+    <label class="form-label" style="margin-left: 10px"><strong>Organizer</strong></label>
     <select type="number" class="form-control"
             th:field="*{user}">
       <option th:each="user: ${users}" th:value="${user.id}" th:text="${user.fullName}"></option>
     </select>
 
-    <label class="form-label" style="margin-left: 10px"><strong>Kraj</strong></label>
+    <label class="form-label" style="margin-left: 10px"><strong>Country</strong></label>
     <select type="text" class="form-control"  th:field="*{location}">
       <option th:each="location: ${locations}" th:value="${location.id}" th:text="${location.fullLocation}"></option>
     </select>
 
-    <label class="form-control" style="margin-left: 10px"><strong>Odlot</strong></label>
+    <label class="form-control" style="margin-left: 10px"><strong>Departure</strong></label>
     <select type="text" class="form-control" th:field="*{placeOfDeparture}">
       <option
               th:each="placeOfDeparture : ${airports}" th:value="${placeOfDeparture.id}"
@@ -40,7 +45,7 @@
       </option>
     </select>
 
-    <label class="form-control" style="margin-left: 10px"><strong>Przylot</strong></label>
+    <label class="form-control" style="margin-left: 10px"><strong>Arrival</strong></label>
     <select type="text" class="form-control" th:field="*{placeOfArrival}">
       <option
               th:each="placeOfArrival : ${airports}" th:value="${placeOfArrival.id}"
@@ -48,10 +53,10 @@
       </option>
     </select>
 
-    <label class="form-label" style="margin-left: 10px"><strong>Cena wycieczki</strong></label>
-    <input type="text" class="form-control" placeholder="Podaj cenę" th:field="*{price}">
+    <label class="form-label" style="margin-left: 10px"><strong>Price</strong></label>
+    <input type="text" class="form-control" placeholder="Give price" th:field="*{price}">
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Utwórz wycieczkę </button>
+      <button type="submit" class="btn btn-primary">Create</button>
     </div>
   </div>
 </form>

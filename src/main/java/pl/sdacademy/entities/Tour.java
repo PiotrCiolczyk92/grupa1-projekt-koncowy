@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 
 @Setter
@@ -13,8 +15,11 @@ import javax.persistence.*;
 public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
+    @Min(value = 0)
     private Integer numberOfParticipants = 0;
+    @Min(value = 1)
     private Integer maxNumberOfParticipants;
     @ManyToOne
     private Location location;

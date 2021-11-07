@@ -12,7 +12,7 @@
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
 
 <h1> Usuwanie wycieczki </h1>
-<form th:object="${tour}" method="post">
+<form th:object="${tour}" th:action="@{add-tour}" method="post">
     <input type="hidden" th:field="*{id}">
     <h3> Czy napewno chcesz usunąć tą wycieczkę? </h3>
     <br>

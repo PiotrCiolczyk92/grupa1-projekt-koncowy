@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import pl.sdacademy.entities.Role;
 import pl.sdacademy.entities.Tour;
 import pl.sdacademy.entities.User;
 import pl.sdacademy.repositories.UserRepository;

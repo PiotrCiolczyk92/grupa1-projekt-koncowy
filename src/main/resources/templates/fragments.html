@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title></title>
@@ -15,16 +15,16 @@
             <li><a th:href="@{/list-tour}" class="nav-link px-2 link-dark">Wycieczki</a></li>
             <li><a th:href="@{/user-list}" class="nav-link px-2 link-dark">Uzytkownik</a></li>
             <li><a th:href="@{/location-list}" class="nav-link px-2 link-dark">Lokalizacje</a></li>
-            <li><a th:href="@{/list-airport}" class="nav-link px-2 link-dark"> Lotniska </a></li></lid>
+            <li><a th:href="@{/list-airport}" class="nav-link px-2 link-dark"> Lotniska </a></li>
             <li><a th:href="@{/opinie}" class="nav-link px-2 link-dark">Opinie</a></li>
             <li><a th:href="@{/onas}" class="nav-link px-2 link-dark">O Nas</a></li>
             <li><a th:href="@{/kontakt}" class="nav-link px-2 link-dark">Kontakt</a></li>
-            </tb>
         </ul>
     </div>
     <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-danger btn-rounded me-2">Zaloguj się</button>
-        <button type="button" class="btn btn-dark">Zarejestruj się</button>
+        <a th:href="@{/login}" type="button" class="btn btn-danger btn-lg px-8">Zaloguj się</a>
+        <button type="button" class="btn-primary btn-rounded me-2">Wyloguj się</button>
+        <a th:href="@{/user-add}" type="button" class="btn btn-dark btn-lg px-8">Zarejestruj się</a>
     </div>
 </nav>
 </body>

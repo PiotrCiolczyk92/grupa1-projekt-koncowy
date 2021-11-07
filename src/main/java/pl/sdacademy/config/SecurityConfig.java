@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import pl.sdacademy.services.UserService;
 
 @Configuration
@@ -26,11 +27,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/list-tour", "/user-add", "/user-list"
-                ,"/location-list", "/location-add", "/update-location", "/delete-location").permitAll()
+                .antMatchers("/", "/login", "/list-tour", "/user-add", "/user-list", "/delete-user"
+                        , "/location-list", "/location-add", "/update-location", "/delete-location").permitAll()
                 .antMatchers("/add-tour").hasRole("USER")
                 .antMatchers("/add-tour").hasRole("ADMIN")
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/");
     }
 
     @Override

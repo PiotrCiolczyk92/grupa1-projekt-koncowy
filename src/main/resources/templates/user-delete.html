@@ -7,12 +7,11 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="conteiner">
 <body>
 <nav th:replace="fragments :: navbar(title='main')"> </nav>
-
+<div class="conteiner">
 <h1> Usuwanie użytkownika. </h1>
-<form th:object="${user}" method="post">
+<form th:object="${user}" th:action="@{delete-user}" method="post">
     <input type="hidden" th:field="*{id}">
     <h3> Czy napewno chcesz usunąć użytkownika? </h3>
     <br>
@@ -20,9 +19,7 @@
     <br>
 
     <button> <a class="btn btn-primary" th:href="@{/user-list}">NIE (wróć do listy użytkowników)</a> </button>
-
 </form>
-
-</body>
 </div>
+</body>
 </html>

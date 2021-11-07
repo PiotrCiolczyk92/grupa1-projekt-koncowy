@@ -15,7 +15,7 @@
 <form th:object="${location}" method="post">
     <div class="mb-3">
     <label>
-        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:action="@{update-location}" th:field="*{id}">
     </label>
         <br>
         <label for="formGroupExampleInput" class="form-label">Nazwa Kraju </label>
